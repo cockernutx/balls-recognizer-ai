@@ -2,32 +2,34 @@ from sklearn.tree import DecisionTreeClassifier
 
 def main():
     characteristics = [
-        [22, 0],   # Tênis
+        [20, 4],   # Tênis
         [70, 1],   # Basquete
-        [66, 2],   # Futebol
-        [7, 0],    # Tênis
+        [68, 2],   # Futebol
+        [63, 3],   # Futebol
+        [21, 4],    # Tênis
         [75, 1],   # Basquete
-        [65, 2]    # Futebol
+        [22, 0],   # Baseball
+        [24, 0],   # Baseball
     ]
 
-    types = ['Tênis', 'Basquete', 'Futebol', 'Tênis', 'Basquete', 'Futebol']
-    colors = {0: 'branca', 1: 'laranja', 2: 'amarela'}
+    types = ['Tênis', 'Basquete', 'Futebol', 'Futebol', 'Tênis', 'Basquete', 'Baseball', 'Baseball']
+    colors = {0: 'branca', 1: 'laranja', 2: 'amarela', 3: 'preto e branco', 4: 'verde'}
     
     model = DecisionTreeClassifier()
     model.fit(characteristics, types)
     
     try:
-        new_ball_size = int(input("Qual e o tamanho da bola? "))
+        new_ball_size = int(input("Qual e a circumferencia da bola? "))
     except:
         print("O tamanho da bola deve ser um numero!")
         return
     print("\n")
     try:
-        new_color = int(input("Qual é a cor da bola? (0 - branca; 1 - laranja; 2 - amarela): "))
+        new_color = int(input("Qual é a cor da bola? (0 - branca; 1 - laranja; 2 - amarela; 3 - preto e branco; 4 - verde): "))
         if new_color < 0:
             print("A cor da bola deve ser um numero entre 0 e 2!")
             return
-        if new_color > 2:
+        if new_color > 4:
             print("A cor da bola deve ser um numero entre 0 e 2!")
             return
     except:
